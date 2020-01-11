@@ -5,10 +5,13 @@ const models = require('../models');
  * @param model
  * @returns {function(*, *): Promise<Array<Model>>}
  */
-const getAll = model => (req, res) => models[model]
-  .findAll()
-  .then(modelRows => res.send(modelRows))
-  .catch(error => console.log(error));
+const getAll = model => (req, res) => {
+  console.log(model, models)
+  models[model]
+    .findAll()
+    .then(modelRows => res.send(modelRows))
+    .catch(error => console.log(error));
+}
 
 /**
  * Fetches a specific register by id

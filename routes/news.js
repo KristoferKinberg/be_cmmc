@@ -1,7 +1,13 @@
-const { modelConstants: { NEWS }} = require('../models');
-const app = require('../server');
+'use strict';
+
+const express = require('express');
+const router = express.Router();
+const { NEWS } = require('../models/modelConstants');
+
 const {
   getAll
 } = require('../core/fetchers');
 
-app.get('/news', getAll(NEWS));
+router.get('/news', getAll(NEWS));
+
+module.exports = router;

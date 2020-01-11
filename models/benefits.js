@@ -1,8 +1,9 @@
 'use strict';
-const { modelConstants: {}} = require('./index');
+
+const { BENEFITS } = require('./modelConstants');
 
 module.exports = (sequelize, { STRING }) => {
-  return sequelize.define('benefits', {
+  return sequelize.define(BENEFITS, {
     text: STRING
   }, {});
 };

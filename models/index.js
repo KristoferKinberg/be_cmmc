@@ -8,43 +8,19 @@ const env       = process.env.NODE_ENV || 'development';
 const config    = require(__dirname + '/../config/config.json')[env];
 const db        = {};
 
+const { getFilenamesInPath } = require('../utils/fileReader');
+const excludes = ['modelConstants.js', 'index.js'];
 
 const sequelize = config.use_env_variable
   ? new Sequelize(process.env[config.use_env_variable], config)
   : new Sequelize(config.database, config.username, config.password, config);
 
-/**
- * Reads all the file names and returns them as an array
- * @returns {string[]}
- */
-const getModelNames = () => fs
-  .readdirSync(__dirname)
-  .filter(file => {
-    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
-  });
-
-/**
- * Formats the filenames
- * @param fileName
- * @returns {*}
- */
-const formatFileName = (fileName) => [...fileName.replace('.js', '')]
-  .reduce((acc, curr) => curr === curr.toUpperCase()
-    ? `${acc}_${curr}`
-    : `${acc}${curr}`
-, '');
-
-/**
- * Creates an object with all the models names with upper cased words with underscore-separated
- * @returns {{}|{[p: string]: *}}
- */
-const createModelConstants = () => getModelNames()
-  .reduce((acc, curr) => ({ ...acc, [formatFileName(curr).toUpperCase()]: curr.replace('.js', '') }), {});
-
-getModelNames()
+getFilenamesInPath(__dirname)
   .forEach(file => {
-    const model = sequelize['import'](path.join(__dirname, file));
-    db[model.name] = model;
+    if (!excludes.includes(file)) {
+      const model = sequelize['import'](path.join(__dirname, file));
+      db[model.name] = model;
+    }
   });
 
 Object.keys(db).forEach(modelName => {
@@ -56,7 +32,4 @@ Object.keys(db).forEach(modelName => {
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-module.exports = {
-  db,
-  modelConstants: createModelConstants(),
-};
+module.exports = db;
