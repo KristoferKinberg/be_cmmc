@@ -1,13 +1,7 @@
 'use strict';
 
-const express = require('express');
-const router = express.Router();
+const { ALL, SPECIFIC } = require('../constants');
 const { NEWS } = require('../models/modelConstants');
+const { applyRoutes } = require('../core/applyRoutes')
 
-const {
-  getAll
-} = require('../core/fetchers');
-
-router.get('/news', getAll(NEWS));
-
-module.exports = router;
+module.exports = applyRoutes(NEWS, [ ALL, SPECIFIC ]);
