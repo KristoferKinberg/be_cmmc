@@ -17,7 +17,7 @@ app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
   next();
 });
-
+console.log(require('./models/modelConstants'));
 // configure Express
 app.set('views', __dirname + '/api/views');
 app.set('view engine', 'ejs');

@@ -22,7 +22,7 @@ const schema = baseRoute => ({
   [SPECIFIC]: { func: [getSpecific(baseRoute)], route: '/:id', type: GET },
   [UPDATE]: { func: [patchSpecific(baseRoute)], route: '/:id', type: POST },
   [DELETE]: { func: [deleteSpecific(baseRoute)], route: '/:id', type: DELETE },
-  [CREATE]: { func: [createRecord(baseRoute)], route: '/:id', type: CREATE }
+  [CREATE]: { func: [createRecord(baseRoute)], route: '', type: POST }
 });
 
 const applyRoutes = (baseRoute, methods) => {

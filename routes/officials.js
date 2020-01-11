@@ -1,8 +1,8 @@
 'use strict';
 
 const { ALL, SPECIFIC, CREATE, UPDATE, DELETE } = require('../constants');
-const { BENEFITS } = require('../models/modelConstants');
+const { OFFICIALS } = require('../models/modelConstants');
 const { applyRoutes } = require('../core/applyRoutes');
 
-module.exports = applyRoutes(BENEFITS, [ ALL, SPECIFIC, CREATE, UPDATE, DELETE ]);
+module.exports = applyRoutes(OFFICIALS, [ ALL, SPECIFIC, CREATE, UPDATE, DELETE ]);
 
