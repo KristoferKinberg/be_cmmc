@@ -31,7 +31,7 @@ const applyRoutes = (baseRoute, methods) => {
 
   methods.map(method => {
     const { func, route, type } = schm[method];
-    return router[type.toLowerCase()](`/${baseRoute}${route}`, ...func)
+    return router[type.toLowerCase()](`/api/${baseRoute}${route}`, ...func)
   });
 
   return router;
