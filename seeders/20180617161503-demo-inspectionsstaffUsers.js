@@ -9,7 +9,7 @@ module.exports = {
       },
       {
         inspectionsStaffId: 1,
-        userId: 2
+        userId: 4
       },
       {
         inspectionsStaffId: 1,
@@ -18,6 +18,10 @@ module.exports = {
       {
         inspectionsStaffId: 1,
         userId: 5
+      },
+      {
+        inspectionsStaffId: 1,
+        userId: 6
       }
     ], {});
   },

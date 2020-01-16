@@ -5,7 +5,7 @@ module.exports = {
     return queryInterface.bulkInsert('boardUsers', [
       {
         boardId: 1,
-        UserId: 1
+        userId: 1
       }
     ], {});
   },

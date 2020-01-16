@@ -1,32 +1,30 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('boardUsers', {
+    return queryInterface.createTable('invites', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      boardId: {
-        type: Sequelize.INTEGER
+      inviteToken: {
+        type: Sequelize.TEXT
       },
-      userId: {
-        type: Sequelize.INTEGER
+      email: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.fn('now')
+        type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.fn('now')
+        type: Sequelize.DATE
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('boardUsers');
+    return queryInterface.dropTable('invites');
   }
 };
