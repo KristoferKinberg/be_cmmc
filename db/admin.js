@@ -111,11 +111,6 @@ const getInviteData = ({ params: { token }}, res) => models[INVITES].findOne({ w
  * @returns {Promise<void|*>}
  */
 const crypter = async (password) => {
-  console.log(password)
-  console.log(password)
-  console.log(password)
-  console.log(password)
-
   const salt = await bcrypt.genSalt(10);
   return bcrypt.hash(password, salt);
 };

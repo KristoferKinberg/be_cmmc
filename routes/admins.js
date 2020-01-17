@@ -18,7 +18,8 @@ router.post("/api/admin/reset_password", resetPassword);
 
 router.get("/api/admin/invite/:token", getInviteData);
 router.get("/api/admin/", auth.jwtAuth, getUsers);
-router.get("/api/invited", auth.jwtAuth, getInvited);
+// router.get("/api/invited", auth.jwtAuth, getInvited);
+router.get("/api/invited", getInvited);
 
 router.delete("/api/invited/:id", auth.jwtAuth, removeInvited);
 router.delete("/api/admin/:id", auth.jwtAuth, removeUser);

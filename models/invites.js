@@ -1,14 +1,8 @@
 'use strict';
 
-const { INVITE: Invites } = require('../models/modelConstants');
+const { INVITES } = require('../models/modelConstants');
 
-module.exports = (sequelize, DataTypes) => {
-  const Invite = sequelize.define(Invites, {
-    inviteToken: DataTypes.TEXT,
-    email: DataTypes.STRING
-  }, {});
-  Invite.associate = function(models) {
-    // associations can be defined here
-  };
-  return Invite;
-};
+module.exports = (sequelize, DataTypes) => sequelize.define(INVITES, {
+  inviteToken: DataTypes.TEXT,
+  email: DataTypes.STRING
+}, {});
