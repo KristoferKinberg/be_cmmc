@@ -3,7 +3,7 @@
 const express = require('express');
 const models = require('../models');
 const {derivePlainData} = require("../helpers");
-const  { getAllList } = require('../core/basicQueries');
+const { getAllList } = require('../core/basicQueries');
 const {
   GOALS,
   STATUES,

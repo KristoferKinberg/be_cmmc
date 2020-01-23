@@ -1,4 +1,5 @@
 const express = require('express');
+const {generateNewObjReq} = require("./basicQueries");
 const {
   ALL,
   SPECIFIC,
@@ -8,6 +9,7 @@ const {
   GET,
   POST,
   DESTROY,
+  NEW,
 } = require('../constants');
 const {
   getAll,
@@ -22,10 +24,17 @@ const schema = baseRoute => ({
   [SPECIFIC]: { func: [getSpecific(baseRoute)], route: '/:id', type: GET },
   [UPDATE]: { func: [patchSpecific(baseRoute)], route: '/:id', type: POST },
   [DELETE]: { func: [deleteSpecific(baseRoute)], route: '/:id', type: DELETE },
-  [CREATE]: { func: [createRecord(baseRoute)], route: '', type: POST }
+  [CREATE]: { func: [createRecord(baseRoute)], route: '/new', type: POST },
+  [NEW]: { func: [generateNewObjReq(baseRoute)], route: '/new', type: GET }
 });
 
 const applyRoutes = (baseRoute, methods) => {
+  const orderedMethods = methods.sort((a, b) => {
+    return [NEW, CREATE].includes(a)
+      ? -1
+      : 1;
+  });
+
   const router = express.Router();
   const schm = schema(baseRoute);
 

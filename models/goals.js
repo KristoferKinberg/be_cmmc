@@ -2,6 +2,12 @@
 
 const { GOALS } = require('../models/modelConstants');
 
-module.exports = (sequelize, { STRING }) => sequelize.define(GOALS, {
-  text: STRING
-}, {});
+module.exports = (sequelize, { STRING }) => {
+  console.log(sequelize.define(GOALS, {
+    text: STRING
+  }));
+
+  return sequelize.define(GOALS, {
+    text: STRING
+  }, {});
+}

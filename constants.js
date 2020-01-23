@@ -8,4 +8,5 @@ module.exports = {
   CREATE: 'CREATE',
   UPDATE: 'UPDATE',
   DESTROY: 'DESTROY',
+  NEW: 'NEW',
 };

@@ -5,8 +5,8 @@ const models = require('../models');
  * @param model
  * @returns {function(*, *): Promise<Array<Model>>}
  */
-const getAllReq = model => models[model]
-  .findAll()
+const getAllReq = (model, where = { where: {}}) => models[model]
+  .findAll(where)
   .catch(error => console.log(error));
 
 /**
@@ -55,11 +55,25 @@ const getAllList = models => Promise
   .all(models.map(model => getAllReq(model)))
   .catch(error => console.log(error));
 
+/**
+ * Creates new for returning model objects
+ * @param model
+ * @returns {Function}
+ */
+const generateNewObjReq = model => (req, res) => {
+  const data = Object.keys(models[model].rawAttributes)
+    .filter(key => (!['id', 'createdAt', 'updatedAt'].includes(key)))
+    .reduce((acc, curr) => ({ ...acc, [curr]: '' }), {});
+
+  res.send(data);
+};
+
 module.exports = {
   getAllReq,
   getSpecificReq,
   patchSpecificReq,
   deleteSpecificReq,
   createRecordReq,
-  getAllList
+  getAllList,
+  generateNewObjReq,
 };
