@@ -1,8 +1,13 @@
 'use strict';
 
-const { ALL, SPECIFIC, UPDATE } = require('../constants');
+const { UPDATE } = require('../constants');
 const { CONTACT } = require('../models/modelConstants');
 const { applyRoutes } = require('../core/applyRoutes');
+const {getSpecificReq} = require("../core/basicQueries");
 
-module.exports = applyRoutes(CONTACT, [ ALL, SPECIFIC, UPDATE ]);
+const router = applyRoutes(CONTACT, [ UPDATE ]);
+router.get('/api/contact/', (req, res) => getSpecificReq(CONTACT, 1)
+  .then(result => res.send(result)));
+
+module.exports = router;
 

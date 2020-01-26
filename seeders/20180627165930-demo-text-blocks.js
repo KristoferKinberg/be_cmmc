@@ -27,7 +27,7 @@ module.exports = {
           "Gäller ansökan fordon som ska bevaras i ett mycket slitet skick, och där en renovering skulle göra att fordonet förlorar sitt historiska värde eller sin karaktär fyller du även i blanketten Fordon som ska bevaras i orenoverat skick. Läs mer.." +
           "Lite beroende på vilken typ av ansökan och eventuell kompletteringar elektronisk ansökan är alltid enklare att hantera då ingen kopiering av foton mm behöver göras. När CMMC fått in din ansökan granskas den och om allt är bra skickas ansökan vidre till MHRF med utlåtande ifrån klubbens försäkrings män, först därefter utfärdas försäkringen. Du kan normalt räkna med max en veckas behandlingstid hos MHRF. Ansökan, protokoll och fotografier arkiveras med eventuella tillägg som du senare sänder in. Skulle något inträffa med ditt fordon har vi alla uppgifter till hands och kan hjälpa dig på bästa sätt. Ett sista tips bara: börja i god tid. Att en bil eller motorcykel blir färdig är ju sällan en överraskning! Under våren har klubbarnas besiktningsmän ofta mycket att göra och det kan ta längre tid än normalt. Teckna trafikförsäkring samma dag du köper ett fordon! Köper du ett fordon som inte är avställt måste du teckna trafikförsäkring från den dag du blir ägare. Ring omedelbart Folksam och teckna en trafikförsäkring så kan vi sedan ordna med överflyttning av premien när du fått din MHRF-försäkring. Du kommer annars att få betala en hög straffavgift till Trafikförsäkringsföreningen."
       },
-      { // IN SPECTIONS STAFF
+      { // INSPECTIONS STAFF
         title: "Besiktningsmän",
         text: "",
       },

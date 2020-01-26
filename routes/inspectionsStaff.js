@@ -1,8 +1,11 @@
 'use strict';
 
-const { ALL, SPECIFIC, UPDATE } = require('../constants');
+const {getTextBlock} = require("../requesters/textBlocks");
+const { UPDATE } = require('../constants');
 const { INSPECTIONS_STAFF } = require('../models/modelConstants');
 const { applyRoutes } = require('../core/applyRoutes');
 
-module.exports = applyRoutes(INSPECTIONS_STAFF, [ ALL, SPECIFIC, UPDATE ]);
+const router = applyRoutes(INSPECTIONS_STAFF, [ UPDATE ]);
+router.get('/api/inspectionsstaff/', getTextBlock(6));
 
+module.exports = router;
